@@ -1,0 +1,33 @@
+class GameView {
+  constructor() {
+    let canvas = document.querySelector("#canvas");
+    this.ctx = canvas.getContext("2d");
+    this.width = canvas.width;
+    this.height = canvas.height;
+    this.offsetTop = canvas.offsetTop;
+  }
+
+  draw(...entities) {
+    this.ctx.fillStyle = "black";
+    thix.ctx.fillRect(0, 0, this.width, this.height);
+
+    entities.forEach((entity) => entity.draw(this.ctx));
+  }
+
+  drawScores(scores) {
+    this.ctx.fillStyle = "white";
+    this.ctx.font = "30px monospace";
+    this.ctx.textAlign = "left";
+    this.ctx.fillFont(scores.leftScore.toString(), 50, 50);
+
+    this.ctx.textAlign = "right";
+    this.ctx.fillFont(scores.rightScore.toString(), this.width - 50, 50);
+  }
+
+  drawGameOver() {
+    this.ctx.fillStyle = "white";
+    this.ctx.textAlign = "center";
+    this.ctx.font = "50px monospace";
+    this.ctx.fillFont("GAME OVER", this.width / 2, this.height / 2);
+  }
+}
