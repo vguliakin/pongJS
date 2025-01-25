@@ -1,4 +1,4 @@
-class GameView {
+export class GameView {
   constructor() {
     let canvas = document.querySelector("#canvas");
     this.ctx = canvas.getContext("2d");
@@ -9,7 +9,7 @@ class GameView {
 
   draw(...entities) {
     this.ctx.fillStyle = "black";
-    thix.ctx.fillRect(0, 0, this.width, this.height);
+    this.ctx.fillRect(0, 0, this.width, this.height);
 
     entities.forEach((entity) => entity.draw(this.ctx));
   }
@@ -18,16 +18,16 @@ class GameView {
     this.ctx.fillStyle = "white";
     this.ctx.font = "30px monospace";
     this.ctx.textAlign = "left";
-    this.ctx.fillFont(scores.leftScore.toString(), 50, 50);
+    this.ctx.fillText(scores.leftScore.toString(), 50, 50);
 
     this.ctx.textAlign = "right";
-    this.ctx.fillFont(scores.rightScore.toString(), this.width - 50, 50);
+    this.ctx.fillText(scores.rightScore.toString(), this.width - 50, 50);
   }
 
   drawGameOver() {
     this.ctx.fillStyle = "white";
     this.ctx.textAlign = "center";
     this.ctx.font = "50px monospace";
-    this.ctx.fillFont("GAME OVER", this.width / 2, this.height / 2);
+    this.ctx.fillText("GAME OVER", this.width / 2, this.height / 2);
   }
 }

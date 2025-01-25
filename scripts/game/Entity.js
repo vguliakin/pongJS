@@ -1,4 +1,4 @@
-class Entity {
+export class Entity {
   constructor(x, y, width, height) {
     this.x = x;
     this.y = y;
@@ -15,7 +15,7 @@ class Entity {
     };
   }
 
-  draw() {
+  draw(ctx) {
     ctx.fillStyle = "white";
     ctx.fillRect(this.x, this.y, this.width, this.height);
   }
